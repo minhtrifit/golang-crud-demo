@@ -3,7 +3,7 @@ package main
 import (
 	"os"
 	"server/configs"
-	"server/controllers"
+	"server/routes"
 	"time"
 
 	"github.com/gin-contrib/cors"
@@ -47,7 +47,7 @@ func main() {
 	}));
 
 	// Server router
-	router.GET("/", controllers.HandleRunServer);
+	routes.SetupRoutes(router);
 
 	println(configs.Green, ">>>>> Jira Clone server run successfully at port:" + PORT, configs.Reset);
 
